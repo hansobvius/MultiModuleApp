@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">featureb</string>
+    <string name="module_b">Module B</string>
 </resources>

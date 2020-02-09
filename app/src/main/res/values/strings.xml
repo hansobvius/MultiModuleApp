@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MultiModuleApp</string>
+    <string name="module_application">Module Application</string>
 </resources>

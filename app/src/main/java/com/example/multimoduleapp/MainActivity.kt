@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.featureb.FeatureBActivity
 import com.example.multimoduleapp.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,12 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
             this, R.layout.activity_main)
+        setSupportActionBar(binding.mainToolbar)
+    }
+
+    override fun onResume(){
+        super.onResume()
         initListener()
     }
 
     private fun initListener(){
         binding.appButton.setOnClickListener {
-            startActivity(Intent(this, FeatureBActivity::class.java))
+            startActivity(Intent(
+                this, FeatureBActivity::class.java))
         }
     }
 }

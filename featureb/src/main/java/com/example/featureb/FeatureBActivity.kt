@@ -1,10 +1,12 @@
 package com.example.featureb
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.featureb.databinding.ActivityFeaturebBinding
+import com.example.featurec.FeatureCActivity
 
 class FeatureBActivity: AppCompatActivity() {
 
@@ -24,7 +26,7 @@ class FeatureBActivity: AppCompatActivity() {
 
     private fun initlistener(){
         binding.featurebButton.setOnClickListener{
-            Toast.makeText(this, "Click", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, FeatureCActivity::class.java))
         }
     }
 }

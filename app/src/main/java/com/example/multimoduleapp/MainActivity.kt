@@ -3,14 +3,24 @@ package com.example.multimoduleapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.example.featureb.FeatureBActivity
 import com.example.multimoduleapp.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
+
+private const val packageName = "com.example.multimoduleapp"
+private const val featureCClassName = "$packageName.FeatureCActivity"
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val clickListener by lazy{
+        View.OnClickListener{
+            when(it.id){
+                binding.appButton.id -> launchActivity(featureCClassName)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +34,24 @@ class MainActivity : AppCompatActivity() {
         initListener()
     }
 
-    private fun initListener(){
-        binding.appButton.setOnClickListener {
-            startActivity(Intent(
-                this, FeatureBActivity::class.java))
+//    private fun initListener(){
+//        binding.appButton.setOnClickListener {
+//            startActivity(Intent(
+//                this, FeatureCActivity::class.java))
+//        }
+//    }
+
+    private fun launchActivity(className: String){
+        Intent().setClassName(packageName, className).also{
+            startActivity(it)
         }
+    }
+
+    private fun initListener(){
+        setClickListener(binding.appButton.id, clickListener)
+    }
+
+    private fun setClickListener(id: Int, listener: View.OnClickListener){
+        findViewById<View>(id).setOnClickListener(listener)
     }
 }

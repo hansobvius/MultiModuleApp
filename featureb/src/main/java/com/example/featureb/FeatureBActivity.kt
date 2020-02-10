@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.featureb.databinding.ActivityFeaturebBinding
-import com.example.featurec.FeatureCActivity
 
 class FeatureBActivity: AppCompatActivity() {
 
@@ -25,8 +24,6 @@ class FeatureBActivity: AppCompatActivity() {
     }
 
     private fun initlistener(){
-        binding.featurebButton.setOnClickListener{
-            startActivity(Intent(this, FeatureCActivity::class.java))
-        }
+        binding.featurebButton.setOnClickListener{}
     }
 }

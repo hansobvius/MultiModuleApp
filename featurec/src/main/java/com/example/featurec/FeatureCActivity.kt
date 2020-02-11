@@ -1,10 +1,11 @@
 package com.example.featurec
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.featurec.databinding.ActivityFeaturecBinding
+import com.example.multimoduleapp.MainActivity
 
 class FeatureCActivity: AppCompatActivity() {
 
@@ -23,12 +24,9 @@ class FeatureCActivity: AppCompatActivity() {
     }
 
     private fun initListener(){
-        binding.featurecTollbar.setOnClickListener{
-            Toast.makeText(
-                this,
-                "Clicked feature c",
-                Toast.LENGTH_LONG
-            ).show()
+        binding.featurebButton.setOnClickListener{
+            startActivity(Intent(
+                this, MainActivity::class.java))
         }
     }
 }

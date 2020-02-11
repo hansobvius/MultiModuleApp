@@ -7,7 +7,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.example.multimoduleapp.databinding.ActivityMainBinding
 
-private const val packageName = "com.example.multimoduleapp"
+private const val packageName = "com.example.featurec"
 private const val featureCClassName = "$packageName.FeatureCActivity"
 
 class MainActivity : AppCompatActivity() {
@@ -33,13 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         initListener()
     }
-
-//    private fun initListener(){
-//        binding.appButton.setOnClickListener {
-//            startActivity(Intent(
-//                this, FeatureCActivity::class.java))
-//        }
-//    }
 
     private fun launchActivity(className: String){
         Intent().setClassName(packageName, className).also{

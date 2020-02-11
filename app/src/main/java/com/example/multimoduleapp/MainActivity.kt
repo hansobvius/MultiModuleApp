@@ -14,13 +14,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val clickListener by lazy{
-        View.OnClickListener{
-            when(it.id){
-                binding.appButton.id -> launchActivity(featureCClassName)
-            }
-        }
-    }
+//    private val clickListener by lazy{
+//        View.OnClickListener{
+//            when(it.id){
+//                binding.appButton.id -> launchActivity(featureCClassName)
+//            }
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,29 +29,22 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.mainToolbar)
     }
 
-    override fun onResume(){
-        super.onResume()
-        initListener()
-    }
-
-//    private fun initListener(){
-//        binding.appButton.setOnClickListener {
-//            startActivity(Intent(
-//                this, FeatureCActivity::class.java))
+//    override fun onResume(){
+//        super.onResume()
+//        initListener()
+//    }
+//
+//    private fun launchActivity(className: String){
+//        Intent().setClassName(packageName, className).also{
+//            startActivity(it)
 //        }
 //    }
-
-    private fun launchActivity(className: String){
-        Intent().setClassName(packageName, className).also{
-            startActivity(it)
-        }
-    }
-
-    private fun initListener(){
-        setClickListener(binding.appButton.id, clickListener)
-    }
-
-    private fun setClickListener(id: Int, listener: View.OnClickListener){
-        findViewById<View>(id).setOnClickListener(listener)
-    }
+//
+//    private fun initListener(){
+//        setClickListener(binding.appButton.id, clickListener)
+//    }
+//
+//    private fun setClickListener(id: Int, listener: View.OnClickListener){
+//        findViewById<View>(id).setOnClickListener(listener)
+//    }
 }

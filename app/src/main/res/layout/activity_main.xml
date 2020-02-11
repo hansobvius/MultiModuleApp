@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -20,34 +20,16 @@
             android:background="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_fragment"
+            android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+            app:navGraph="@navigation/nav_graph"
+            app:defaultNavHost="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="-16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Module App"
-                android:textSize="50sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/app_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Click"
-            android:textSize="20sp"
-            android:background="@color/colorAccent"
-            android:layout_gravity="center"
-            android:textColor="#FFF"
-            android:layout_margin="8dp"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="@id/main_toolbar"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

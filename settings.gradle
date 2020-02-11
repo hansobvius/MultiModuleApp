@@ -1,2 +1,2 @@
-include ':app', ':featurec'
+include ':app', ':featureb', ':featurec'
 rootProject.name='MultiModuleApp'

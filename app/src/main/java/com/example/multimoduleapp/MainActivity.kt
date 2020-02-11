@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import com.example.featureb.FeatureBActivity
 import com.example.multimoduleapp.databinding.ActivityMainBinding
 
 private const val packageName = "com.example.featurec"
@@ -13,6 +14,8 @@ private const val featureCClassName = "$packageName.FeatureCActivity"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private var value: String = ""
 
     private val clickListener by lazy{
         View.OnClickListener{
@@ -31,7 +34,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume(){
         super.onResume()
-        initListener()
+//        getIntentValue()
+//        initListener()
+        initBModule()
+    }
+
+    private fun getIntentValue(){
+        val intent = Intent.EXTRA_INTENT
+        if(intent != null) value = intent
     }
 
     private fun launchActivity(className: String){
@@ -46,5 +56,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListener(id: Int, listener: View.OnClickListener){
         findViewById<View>(id).setOnClickListener(listener)
+    }
+
+    private fun initBModule(){
+        startActivity(Intent(this, FeatureBActivity::class.java))
     }
 }
